@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Agente Inteligente</title>
+    <!--build css-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--endbuild-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+
+    	img {
+		  filter:  drop-shadow(16px 16px 20px blue) invert(30%);
+		}
+    </style>
+    <body style="background: linear-gradient(to right,gray,whitesmoke,lightblue)">
+    	<button class="btn btn-outline-danger" onclick="next();">Proximo</button>
+    </body>
+     <!--build js-->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!--endbuild-->
+
+
+    <script type="text/javascript">
+    
+    var n = 0;
+
+    var alunos = {
+        0:{
+            'nome':'maria',
+            'idade': 16,
+            'curso':'ads',
+            'Ansiedade':'5%',
+            'Sonolencia':'10%',
+            'Concentração':'15%'
+        },
+        1:{
+            'nome':'joao',
+            'idade':17,
+            'curso':'esoft',
+            'Ansiedade':'3%',
+            'Sonolencia':'30%',
+            'Concentração':'45%'
+        }
+    }
+    function next() {
+        if (n >= 2) {
+            n = 0;
+        }
+
+        var table = document.createElement('table');
+        table.style.borderSpacing = 'initial';
+        var tHeader = document.createElement('thead');
+        table.appendChild(tHeader);
+        var trHead = document.createElement('tr');
+        tHeader.appendChild(trHead);
+        var thDadosPessoais = document.createElement('th');
+        var thDadosPessoaisText = document.createTextNode('Dados Pessoais');
+        thDadosPessoais.appendChild(thDadosPessoaisText);
+        var thDescrição = document.createElement('th');
+        var thDescriçãoText = document.createTextNode('Descrição');
+        thDescrição.appendChild(thDescriçãoText);
+        var thStatus = document.createElement('th');
+        var thStatusText = document.createTextNode('Status');
+        thStatus.appendChild(thStatusText);
+        var thPorcentual = document.createElement('th');
+        var thPorcentualText = document.createTextNode('Porcentual');
+        thPorcentual.appendChild(thPorcentualText);
+        trHead.appendChild(thDadosPessoais);
+        trHead.appendChild(thDescrição);
+        trHead.appendChild(thStatus);
+        trHead.appendChild(thPorcentual);
+        var tBody = document.createElement('tbody');
+        table.appendChild(tBody);
+        var tr1 = document.createElement('tr');
+        tBody.appendChild(tr1);
+        var tdNome = document.createElement('td');
+        var tdNomeText = document.createTextNode('Nome');
+        tdNome.appendChild(tdNomeText);
+        var tdNomeAluno = document.createElement('td');
+        var tdNomeAlunoText = document.createTextNode(alunos[n].nome);
+        var tdAnsiedade = document.createElement('td');
+        var tdAnsiedadeText = document.createTextNode('Ansiedade');
+        tdAnsiedade.appendChild(tdAnsiedadeText);
+        var tdAnsiedadeAluno = document.createElement('td');
+        var tdAnsiedadeAlunoText = document.createTextNode(alunos[n].Ansiedade);
+        tdAnsiedadeAluno.appendChild(tdAnsiedadeAlunoText);
+
+        tr1.appendChild(tdNome);
+        tr1.appendChild(tdNomeAlunoText);
+        tr1.appendChild(tdAnsiedade);
+        tr1.appendChild(tdAnsiedadeAluno);
+        
+
+
+        var tr2 = document.createElement('tr');
+        tBody.appendChild(tr2);
+        var tdIdade = document.createElement('td');
+        var tdIdadeText = document.createTextNode('Idade');
+        tdIdade.appendChild(tdIdadeText);
+        var tdIdadeAluno = document.createElement('td');
+        var tdIdadeAlunoText = document.createTextNode(alunos[n].idade);
+        tdIdadeAluno.appendChild(tdIdadeAlunoText);
+        var tdSonolencia = document.createElement('td');
+        var tdSonolenciaText = document.createTextNode('Sonolencia');
+        tdSonolencia.appendChild(tdSonolenciaText);
+        var tdSonolenciaAluno = document.createElement('td');
+        var tdSonolenciaAlunoText = document.createTextNode(alunos[n].Sonolencia);
+        tdSonolenciaAluno.appendChild(tdSonolenciaAlunoText);
+        tr2.appendChild(tdIdade);
+        tr2.appendChild(tdIdadeAluno);
+        tr2.appendChild(tdSonolencia);
+        tr2.appendChild(tdSonolenciaAluno);
+
+        var tr3 = document.createElement('tr');
+        tBody.appendChild(tr3);
+        var tdCurso = document.createElement('td');
+        var tdCursoText = document.createTextNode('Curso');
+        tdCurso.appendChild(tdCursoText);
+        var tdCursoAluno = document.createElement('td');
+        var tdCursoAlunoText = document.createTextNode(alunos[n].curso);
+        tdCursoAluno.appendChild(tdCursoAlunoText);
+        var tdConcentração = document.createElement('td');
+        var tdConcentraçãoText = document.createTextNode('Concentração');
+        tdConcentração.appendChild(tdConcentraçãoText);
+        var tdConcentraçãoAluno = document.createElement('td');
+        var tdConcentraçãoAlunoText = document.createTextNode(alunos[n].Concentração);
+        tdConcentraçãoAluno.appendChild(tdConcentraçãoAlunoText);
+
+        tr3.appendChild(tdCurso);
+        tr3.appendChild(tdCursoAluno);
+        tr3.appendChild(tdConcentração);
+        tr3.appendChild(tdConcentraçãoAluno);
+        document.body.appendChild(table);
+        n++;
+    }
+    </script>
+
+</body>
+</html>

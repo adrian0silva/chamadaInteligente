@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agente Inteligente</title>
+    <!--build css-->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--endbuild-->
+    <style type="text/css">
+    	.btn:not(#test) {
+    		font-size: 30px;
+    		width: 250px;
+    	}
+   		.form-control {
+   			border: 1px solid #00000959;
+   		}
+   		label {
+   			color: black;
+   			font-size: 20px;
+   		}
+      a {
+        color: white;
+      }
+      a:hover {
+        background: white;
+      }
+      .active {
+        background: red;
+        cursor: inherit;
+      }
+    </style>
+   	<body>
+      <header id="header">
+        <nav class="navbar navbar-expand-lg nav-light" style="background: rgb(12,12,12);">
+            <div class="collapse navbar-collapse">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a href="telaprofessor.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a href="aluno.html" class="nav-link">Relatorios</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link active">Cadastrar</a>
+                </li>
+                <li class="nav-item">
+                  <a href="listanova.html" class="nav-link">Lista de chamada</a>
+                </li>
+              </ul>
+            </div>
+            <ul class="navbar-nav ml-auto">
+              <span class="fa fa-search" style="font-size: 20px; color: white; cursor: pointer;" >
+                <input type="text" name="" style="border:1px solid black;" placeholder="search">
+              </span>
+              <a class="btn btn-outline-warning" id="test" href="agentelogin.html">Sair</a>
+            </ul>
+        </nav>
+      </header>
+   		<main>
+   			<section style="background-color: rgba(0,123,255,.5)">
+   				<div class="container">
+   					<div class="row ">
+   						<div class="col-md-3 mt-2">
+   							<img class="img-fluid" src="https://cdn4.iconfinder.com/data/icons/green-shopper/1068/user.png">
+   							</br>
+   							</br>
+   							<button class="btn btn-secondary">Tirar Foto</button>
+   						</div>
+   						<div class="col-md-8 ml-5" >
+   							<form method="POST" action="">
+   								<div class="form-group">
+   									<label for="nome">Nome Completo</label>
+   									<input type="text" name="nome" id="" class="form-control" placeholder="Nome" required="">
+   								</div>
+   								<div class="form-row">
+   									<div class="form-group col-md-3">
+   										<label>Sexo</label>
+   										<input type="text" name="Sex" class="form-control" placeholder="Sexo" required="">
+   									</div>
+   									<div class="form-group col-md-9">
+   										<label>Idade</label>
+   										<input type="number" name="age" class="form-control" placeholder="Idade" required="">
+   									</div>
+   								</div>
+   								<div class="form-group">
+   									<label>RA</label>
+   									<input type="number" name="" class="form-control" placeholder="RA" required="">
+   								</div>
+   								<div class="form-row">
+   									<div class="form-group col-md-9">
+   										<label>Endereço</label>
+   										<input type="text" name="" class="form-control" placeholder="Endereço">
+   									</div>
+   									<div class="form-group col-md-3">
+   										<label>Numero</label>
+   										<input type="number" name="" class="form-control" placeholder="N°">
+   									</div>
+   								</div>
+   								<div class="form-group">
+   									<label>Curso</label>
+   									<input type="text" name="" class="form-control" placeholder="Curso">
+   								</div>
+   								<div class="form-row">
+   									<div class="form-group col-md-9">
+   										<label>Ano</label>
+   										<input type="text" name="number" placeholder="Ano" class="form-control">
+   									</div>
+   									<div class="form-group col-md-3">
+   										<label>Turma</label>
+   										<input type="text" name="text" placeholder="Turma" class="form-control">
+   									</div>
+   								</div>
+   								<div class="form-row">
+   									<div class="form-group col-md-9">
+   										<label>Email</label>
+   										<input type="email" name="" class="form-control" placeholder="Email">
+   									</div>
+   									<div class="form-group col-md-3">
+   										<label>Telefone</label>
+   										<input type="number" name="" class="form-control" placeholder="Telefone">
+   									</div>
+   								</div>
+   							</br>
+   							</br>
+     								<button class="btn btn-success" style="float: left;">Concluir</button>
+   							</form>
+   						</div>
+   					</div>
+   				</div>
+   			</section>
+   		</main>
+   		<footer></footer>
+   	</body>
+     <!--build js-->
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!--endbuild-->
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agente Inteligente</title>
+    <!--build css-->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style type="text/css">
+    	#woman {
+    		width: 250px;
+    		height: 250px;
+    	}
+        a {
+            color: white;
+        }
+        a:hover{
+            background: white;
+        }
+        .active {
+            background: red;
+            cursor: inherit;
+        }
+        .btn.outline {
+            background-color: white;
+        }
+    </style>
+    <body style="background: blue;" onload="next()">
+      <header id="header">
+        <nav class="navbar navbar-expand-lg nav-light" style="background: rgb(12,12,12);">
+            <div class="collapse navbar-collapse">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a href="telaprofessor.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link active">Relatorios</a>
+                </li>
+                <li class="nav-item">
+                  <a href="cadastro.html" class="nav-link">Cadastrar</a>
+                </li>
+                <li class="nav-item">
+                  <a href="listanova.html" class="nav-link">Lista de chamada</a>
+                </li>
+              </ul>
+            </div>
+            <ul class="navbar-nav ml-auto">
+              <span class="fa fa-search" style="font-size: 20px; color: white; cursor: pointer;" >
+                <input type="text" name="" style="border:1px solid black;" placeholder="search">
+              </span>
+                <a class="btn btn-outline-warning" href="agentelogin.html">Sair</a>
+            </ul>
+        </nav>
+      </header>
+    	<section>
+    		<div class="container-fluid">
+    			<div class="row">
+    				<div class="col-md-5 pt-5" style="display: grid;" >
+    				</div>
+		    		<div class="col-md-3 text-center mt-3" >
+		    			<img id="woman" src="images.png">
+		    			<button class="btn btn-info ">Maria maclachan</button>
+		    		</div>
+		    		<div class="col-md-3 text-center mt-4" >
+		    			<i class="fa fa-envelope" style="font-size: 100px; display: block;"></i>
+		    			<textarea style="border:2px solid #ba68c8; border-radius: 20px;" placeholder="lorem ipslum"></textarea>
+		    			<button class="btn btn-secondary">Enviar Mensagem</button>
+		    		</div>
+		    		<div class="col-md-2">
+		    			<button class="btn btn-danger " style="width: 250px;">Anterior</button>
+		    		</div>
+		    		<div class="col-md-2">
+		    			<button class="btn btn-danger " onclick="next();" style="width: 250px;">Proximo</button>
+		    		</div>
+    			</div>
+    		</div>
+    	</section>
+    	<section>
+    		<div class="container-fluid">
+    			<div class="row no-gutters">
+    				<div class="col-md-6 text-center">
+    			         <table class="table table-dark">
+                            <thead>
+                                <tr>
+                                    <th>Dados Pessoais</th>
+                                    <th>Descriçao</th>
+                                    <th>Status</th>
+                                    <th>Porcentual</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Nome</td>
+                                    <data id="nome"></data>
+                                    <td>Ansiedade</td>
+                                    <td id="Ansiedade"></td>
+                                </tr>
+                               <tr>
+                                    <td>Idade</td>
+                                    <td id="idade"></td>
+                                    <td>Sonolencia</td>
+                                    <td id="Sonolencia"></td>
+                                </tr>
+                                <tr>
+                                    <td>Curso</td>
+                                    <td id="curso"></td>
+                                    <td>Estresse</td>
+                                    <td id="Estresse"></td>
+                                </tr>
+                                <tr>
+                                    <td>Semestre</td>
+                                    <td id="Semestre"></td>
+                                    <td>Agitação</td>
+                                    <td id="Agitação"></td>
+                                </tr>
+                                <tr>
+                                    <td>Faltas</td>
+                                    <td id="faltas"></td>
+                                    <td>Atenção</td>
+                                    <td id="atencao"></td>
+                                </tr>
+                            </tbody>
+                         </table>
+    				</div>
+    				<div class="col-md-6">		
+						<div id="chartContainer" style="height: 295px; width: 100%;"></div>
+    				</div>
+    			</div>
+    		</div>
+    	</section>
+    </body>
+     <!--build js-->
+
+<script type="text/javascript">
+    var alunos = {
+        0:{
+            'nome':'maria',
+            'idade': 16,
+            'curso':'ads',
+            'Ansiedade':'5%',
+            'Sonolencia':'10%',
+            'Concentração':'15%'
+        },
+        1:{
+            'nome':'joao',
+            'idade':17,
+            'curso':'esoft',
+            'Ansiedade':'3%',
+            'Sonolencia':'30%',
+            'Concentração':'45%'
+        }
+    }
+
+    /////////////////criando tabela////////////
+
+    window.onload = function () {
+      var chart = new CanvasJS.Chart("chartContainer",
+        {
+            animationEnabled: true,  //change to false
+            backgroundColor: "#F5DEB3",
+            title:{
+                text: "Porcentual de Faltas",  
+                fontColor: "#2f4f4f",
+                fontSize: 30,
+                padding: 10,
+                margin: 15,
+                backgroundColor: "#FFFFE0",
+                borderThickness: 1,
+                cornerRadius: 5,
+                fontWeight: "bold"
+              },
+      axisY:{
+   //     minimum: 50,
+      maximum: 40
+     },
+            data: [
+            {
+                type: "column",
+                dataPoints: [
+                    { label: "março", y: 21 },
+                    { label: "abril", y: 15 },
+                    { label: "maio", y: 20 },
+                    { label: "junho", y: 25 },
+                    { label: "julho", y: 15 },
+                    { label: "agosto", y: 18 },
+                    { label: "setembro", y: 28 },
+                    { label: "novembro", y: 24 },
+                    { label: "outubro", y: 24 }
+                ]
+            }
+            ]
+        });
+        chart.render();
+    }
+ 
+    function next(){
+        var nome = document.getElementById('nome');
+        var newNomeText = document.createTextNode(alunos[0].nome);
+        nome.appendChild(newNomeText);
+        
+    }
+
+    </script>
+    <script type="text/javascript">
+     	function entrar() {
+     		alert('entrando....')
+     	}
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="/assets/js/app.js"></script>
+    <!--endbuild-->
+	<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+</body>
+</html>

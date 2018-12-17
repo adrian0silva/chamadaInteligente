@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dia 2</title>
+	<style type="text/css">
+	</style>
+</head>
+<body onload="mostrar(0);" >
+	<script type="text/javascript" >
+		paises = { 
+			0 : {
+				'nome':'brasil',
+				'valor':10,
+				'jogador':false
+			},
+			1 : {
+				'nome':'argentina',
+				'valor':10,
+				'jogador':false
+			},
+			2 : {
+				'nome':'chile',
+				'valor':10,
+				'jogador':false
+			},
+			3 : {
+				'nome':'paraguai',
+				'valor':10,
+				'jogador':false
+			},
+			4 : {
+				'nome':'uruguai',
+				'valor':10,
+				'jogador':false
+			},
+			5 : {
+				'nome':'venezuela',
+				'valor':10,
+				'jogador':false
+			},
+			6 : {
+				'nome':'colombia',
+				'valor':10,
+				'jogador':false
+			},
+			7 : {
+				'nome':'equador',
+				'valor':10,
+				'jogador':false
+			},	
+			8 : {
+				'nome':'peru',
+				'valor':10,
+				'jogador':false
+			},	
+			9 : {
+				'nome':'suriname',
+				'valor':10,
+				'jogador':false
+			},	
+			10 : {
+				'nome':'bolivia',
+				'valor':10,
+				'jogador':false
+			},	
+			11 : {
+				'nome':'guiana',
+				'valor':10,
+				'jogador':false
+			},	
+			12 : {
+				'nome':'guianaFrancesa',
+				'valor':10,
+				'jogador':false
+			}
+		}
+
+
+		var div = document.createElement('DIV');
+		document.body.appendChild(div)
+			
+
+		var qtd = 5;
+		var qtdRestante = 0;
+
+
+		function mostrar(i) {
+			if (i == 1) {
+				document.body.removeChild(div) 
+				document.body.style.background = 'lightblue';
+				jogar();
+			} 
+
+			var btnBrasil = document.createElement('BUTTON');
+			var brasil = document.createTextNode('brasil');
+			btnBrasil.appendChild(brasil);
+			btnBrasil.addEventListener('click',function(){
+				selecionar('brasil',btnBrasil);
+			})
+			div.appendChild(btnBrasil);
+
+			var btnArgentina = document.createElement('BUTTON');
+			var argentina = document.createTextNode('argentina');
+			btnArgentina.appendChild(argentina);
+			btnArgentina.addEventListener('click',function(){
+				selecionar('argentina',btnArgentina);
+			})
+			div.appendChild(btnArgentina); 
+
+			var btnChile = document.createElement('BUTTON');
+			var chile = document.createTextNode('chile');
+			btnChile.appendChild(chile);
+			btnChile.addEventListener('click',function(){
+				selecionar('chile',btnChile);
+			})
+			div.appendChild(btnChile); 
+
+			var btnParaguai = document.createElement('BUTTON');
+			var paraguai = document.createTextNode('paraguai');
+			btnParaguai.appendChild(paraguai);
+			btnParaguai.addEventListener('click',function() {
+				selecionar('paraguai',btnParaguai)
+			})
+			div.appendChild(btnParaguai); 
+
+			var btnColombia = document.createElement('BUTTON');
+			var colombia = document.createTextNode('colombia');
+			btnColombia.appendChild(colombia);
+			btnColombia.addEventListener('click',function() {
+				selecionar('colombia',btnColombia)
+			})
+			div.appendChild(btnColombia); 
+
+						var btnUruguai = document.createElement('BUTTON');
+			var uruguai = document.createTextNode('uruguai');
+			btnUruguai.appendChild(uruguai);
+			btnUruguai.addEventListener('click',function() {
+				selecionar('uruguai',btnUruguai)
+			})
+			div.appendChild(btnUruguai); 
+
+						var btnPeru = document.createElement('BUTTON');
+			var peru = document.createTextNode('peru');
+			btnPeru.appendChild(peru);
+			btnPeru.addEventListener('click',function() {
+				selecionar('peru',btnPeru)
+			})
+			div.appendChild(btnPeru); 
+
+						var btnBolivia = document.createElement('BUTTON');
+			var bolivia = document.createTextNode('bolivia');
+			btnBolivia.appendChild(bolivia);
+			btnBolivia.addEventListener('click',function() {
+				selecionar('bolivia',btnBolivia)
+			})
+			div.appendChild(btnBolivia); 
+
+						var btnSuriname = document.createElement('BUTTON');
+			var suriname = document.createTextNode('suriname');
+			btnSuriname.appendChild(suriname);
+			btnSuriname.addEventListener('click',function() {
+				selecionar('suriname',btnSuriname)
+			})
+			div.appendChild(btnSuriname); 
+
+						var btnGuiana = document.createElement('BUTTON');
+			var guiana = document.createTextNode('guiana');
+			btnGuiana.appendChild(guiana);
+			btnGuiana.addEventListener('click',function() {
+				selecionar('guiana',btnGuiana)
+			})
+			div.appendChild(btnGuiana); 
+
+						var btnEquador = document.createElement('BUTTON');
+			var equador = document.createTextNode('equador');
+			btnEquador.appendChild(equador);
+			btnEquador.addEventListener('click',function() {
+				selecionar('equador',btnEquador)
+			})
+			div.appendChild(btnEquador);
+
+						var btnGuianaFrancesa = document.createElement('BUTTON');
+			var guianaFrancesa = document.createTextNode('guianaFrancesa');
+			btnGuianaFrancesa.appendChild(guianaFrancesa);
+			btnGuianaFrancesa.addEventListener('click',function() {
+				selecionar('guianaFrancesa',btnGuianaFrancesa)
+			})
+			div.appendChild(btnGuianaFrancesa);
+
+			var btnVenezuela = document.createElement('BUTTON');
+			var venezuela = document.createTextNode('venezuela');
+			btnVenezuela.appendChild(venezuela);
+			btnVenezuela.addEventListener('click',function() {
+				selecionar('venezuela',btnVenezuela)
+			})
+			div.appendChild(btnVenezuela);
+
+		}
+
+		function selecionar(nome,btn) {
+			alert(nome);
+			if (nome == 'brasil') {
+				btn.disabled = true;
+				paises[0].jogador = true;
+			}else if (nome == 'argentina') {
+				btn.disabled = true;
+				paises[1].jogador = true;
+			} else if (nome == 'chile') {
+				btn.disabled = true;
+				paises[2].jogador = true;
+			} else if (nome == 'paraguai') {
+				btn.disabled = true;
+				paises[3].jogador = true;
+			} else if (nome == 'uruguai') {
+				btnB.disabled = true;
+				paises[4].jogador = true;
+			}
+			else if (nome == 'venezuela') {
+				btn.disabled = true;
+				paises[5].jogador = true;
+			}
+			else if (nome == 'colombia') {
+				btn.disabled = true;
+				paises[6].jogador = true;
+			}
+			else if (nome == 'equador') {
+				btn.disabled = true;
+				paises[7].jogador = true;
+			}
+			else if (nome == 'peru') {
+				btn.disabled = true;
+				paises[8].jogador = true;
+			}
+			else if (nome == 'suriname') {
+				btn.disabled = true;
+				paises[9].jogador = true;
+			}
+			else if (nome == 'bolivia') {
+				btn.disabled = true;
+				paises[10].jogador = true;
+			}
+			else if (nome == 'guiana') {
+				btn.disabled = true;
+				paises[11].jogador = true;
+			}
+			else if (nome == 'guianaFrancesa') {
+				btn.disabled = true;
+				paises[12].jogador = true;
+			}
+
+
+
+
+			var soma = 0;
+			for(x=0;x<4;x++) {
+				if (paises[x].jogador == true) {
+					soma = soma +1;
+				}
+			}
+			if (soma >= 1) {
+				mostrar(1);
+			}
+		}
+
+
+
+		function jogar(qtdRestante) {
+			alert('quantidade Restante ' + qtdRestante);
+			alert('Começando Partida');
+
+			var divContainer = document.createElement("DIV");
+			divContainer.style.width = '100%';
+			divContainer.style.paddingRight = '15px';
+			divContainer.style.paddingLeft = '15px';
+			divContainer.style.marignRight = 'auto';
+			divContainer.style.marginLeft = 'auto';
+			document.body.appendChild(divContainer);
+			var divRow = document.createElement('DIV');
+			divRow.style.display = 'flex';
+			divRow.style.flexWrap = 'wrap';
+			divRow.style.marginRight = '-15px';
+			divRow.style.marginLeft = '-15px';
+			divContainer.appendChild(divRow);
+
+			var btnBrasil = document.createElement("BUTTON");
+			var brasil = document.createTextNode("BRASIL");
+			btnBrasil.appendChild(brasil);
+
+			btnBrasil.style.background = 'gray';
+			btnBrasil.style.color = 'white';
+			btnBrasil.style.height = '300px';
+			btnBrasil.style.width = '600px';
+			btnBrasil.style.position = 'absolute';
+			btnBrasil.style.left = '600px';
+			btnBrasil.style.top = '150px';
+			
+			divRow.appendChild(btnBrasil);
+			var spanValue = document.createElement('SPAN');
+			var brasilPontos = paises[0].valor;
+			var txt = document.createTextNode(brasilPontos);
+			spanValue.appendChild(txt);
+			btnBrasil.appendChild(spanValue);
+
+			btnBrasil.addEventListener('mouseover',()=>{
+				btnBrasil.style.transition = 'all 500ms ease-in'
+				btnBrasil.style.background = 'darkgray'
+				btnBrasil.style.height = '50%';
+				btnBrasil.style.width = '50%';
+				btnBrasil.style.fontSize = '30px';
+			})
+
+
+			btnBrasil.addEventListener('mouseleave',()=>{
+				btnBrasil.style.transition = 'all 500ms ease-in'
+				btnBrasil.style.background = 'gray'
+				btnBrasil.style.height = '300px';
+				btnBrasil.style.width = '600px';
+				btnBrasil.style.fontSize = '20px';
+			})
+
+			btnBrasil.addEventListener('click',() => {
+				action(0);
+			})
+
+			var btnArgentina = document.createElement("BUTTON");
+			var argentina = document.createTextNode("ARGENTINA");
+			btnArgentina.appendChild(argentina);
+			btnArgentina.style.background = 'gray';
+			btnArgentina.style.color = 'white';
+
+			btnArgentina.style.position = 'absolute';
+			btnArgentina.style.left = '500px';
+			btnArgentina.style.top = '340px';
+			btnArgentina.style.height = '140px';
+			btnArgentina.style.width = '120px';
+			
+
+			divRow.appendChild(btnArgentina);
+
+			var spanValue1 = document.createElement('SPAN');
+			var argentinaPontos = paises[1].valor;
+			var txt1 = document.createTextNode(argentinaPontos);
+			spanValue1.appendChild(txt1);
+			btnArgentina.appendChild(spanValue1);
+
+
+			
+
+			var btnChile = document.createElement("BUTTON");
+			var chile = document.createTextNode("CHILE");
+			btnChile.appendChild(chile);
+			btnChile.style.background = 'gray';
+			btnChile.style.color = 'white';
+			btnChile.style.height = '180px';
+			btnChile.style.width = '90px';
+			btnChile.style.position = 'absolute';
+			btnChile.style.left = '400px';
+			btnChile.style.top = '250px';
+
+			divRow.appendChild(btnChile);
+
+
+			var spanValue2 = document.createElement('SPAN');
+			var chilePontos = paises[2].valor;
+			var txt2 = document.createTextNode(chilePontos);
+			spanValue2.appendChild(txt2);
+			btnChile.appendChild(spanValue2);
+
+			
+
+			var btnParaguai = document.createElement("BUTTON");
+			var paraguai = document.createTextNode("PARAGUAI");
+			btnParaguai.appendChild(paraguai);
+			btnParaguai.style.background = 'gray';
+			btnParaguai.style.color = 'white';
+			btnParaguai.style.height = '50px';
+			btnParaguai.style.width = '90px';
+
+			btnParaguai.style.position = 'absolute';
+			btnParaguai.style.left = '550px';
+			btnParaguai.style.top = '330px';
+
+			divRow.appendChild(btnParaguai);
+
+			var spanValue3 = document.createElement('SPAN');
+			var paraguaiPontos = paises[3].valor;
+			var txt3 = document.createTextNode(paraguaiPontos);
+			spanValue3.appendChild(txt3);
+			btnParaguai.appendChild(spanValue3);
+
+			var btnUruguai = document.createElement("BUTTON");
+			var uruguai = document.createTextNode("URUGUAI");
+			btnUruguai.appendChild(uruguai);
+			btnUruguai.style.background = 'gray';
+			btnUruguai.style.color = 'white';
+			btnUruguai.style.height = '50px';
+			btnUruguai.style.width = '100px';
+
+			btnUruguai.style.position = 'absolute';
+			btnUruguai.style.left = '600px';
+			btnUruguai.style.top = '450px';
+
+			divRow.appendChild(btnUruguai);
+
+			var spanValue4 = document.createElement('SPAN');
+			var uruguaiPontos = paises[4].valor;
+			var txt4 = document.createTextNode(uruguaiPontos);
+			spanValue4.appendChild(txt4);
+			btnUruguai.appendChild(spanValue4);
+
+				var btnVenezuela = document.createElement("BUTTON");
+			var venezuela = document.createTextNode("VENEZUELA");
+			btnVenezuela.appendChild(venezuela);
+			btnVenezuela.style.background = 'gray';
+			btnVenezuela.style.color = 'white';
+			btnVenezuela.style.height = '100px';
+			btnVenezuela.style.width = '150px';
+			
+			btnVenezuela.style.position = 'absolute';
+			btnVenezuela.style.left = '700px';
+			btnVenezuela.style.top = '20px';
+
+			divRow.appendChild(btnVenezuela);
+
+			var spanValue5 = document.createElement('SPAN');
+			var venezuelaPontos = paises[5].valor;
+			var txt5 = document.createTextNode(venezuelaPontos);
+			spanValue5.appendChild(txt5);
+			btnVenezuela.appendChild(spanValue5);
+
+
+				var btnColombia = document.createElement("BUTTON");
+			var colombia = document.createTextNode("COLOMBIA");
+			btnColombia.appendChild(colombia);
+			btnColombia.style.background = 'gray';
+			btnColombia.style.color = 'white';
+			btnColombia.style.height = '140px';
+			btnColombia.style.width = '110px';
+			
+			btnColombia.style.position = 'absolute';
+			btnColombia.style.left = '550px';
+			btnColombia.style.top = '0px';
+
+			divRow.appendChild(btnColombia);
+
+			var spanValue6 = document.createElement('SPAN');
+			var colombiaPontos = paises[6].valor;
+			var txt6 = document.createTextNode(colombiaPontos);
+			spanValue6.appendChild(txt6);
+			btnColombia.appendChild(spanValue6);
+
+							var btnEquador = document.createElement("BUTTON");
+			var equador = document.createTextNode("EQUADOR");
+			btnEquador.appendChild(equador);
+			btnEquador.style.background = 'gray';
+			btnEquador.style.color = 'white';
+			btnEquador.style.height = '50px';
+			btnEquador.style.width = '90px';
+
+			btnEquador.style.position = 'absolute';
+			btnEquador.style.left = '450px';
+			btnEquador.style.top = '100px';
+
+			divRow.appendChild(btnEquador);
+
+			var spanValue7 = document.createElement('SPAN');
+			var equadorPontos = paises[7].valor;
+			var txt7 = document.createTextNode(equadorPontos);
+			spanValue7.appendChild(txt7);
+			btnEquador.appendChild(spanValue7);
+
+				var btnPeru = document.createElement("BUTTON");
+			var peru = document.createTextNode("PERU");
+			btnPeru.appendChild(peru);
+			btnPeru.style.background = 'gray';
+			btnPeru.style.color = 'white';
+			btnPeru.style.height = '100px';
+			btnPeru.style.width = '100px';
+
+			btnPeru.style.position = 'absolute';
+			btnPeru.style.left = '470px';
+			btnPeru.style.top = '150px';
+
+			divRow.appendChild(btnPeru);
+
+			var spanValue8 = document.createElement('SPAN');
+			var peruPontos = paises[8].valor;
+			var txt8 = document.createTextNode(peruPontos);
+			spanValue8.appendChild(txt8);
+			btnPeru.appendChild(spanValue8);
+
+
+										var btnSuriname = document.createElement("BUTTON");
+			var suriname = document.createTextNode("SURINAME");
+			btnSuriname.appendChild(suriname);
+			btnSuriname.style.background = 'gray';
+			btnSuriname.style.color = 'white';
+			btnSuriname.style.height = '50px';
+			btnSuriname.style.width = '90px';
+
+			btnSuriname.style.position = 'absolute';
+			btnSuriname.style.left = '960px';
+			btnSuriname.style.top = '70px';
+
+			divRow.appendChild(btnSuriname);
+
+			var spanValue9 = document.createElement('SPAN');
+			var surinamePontos = paises[9].valor;
+			var txt9 = document.createTextNode(surinamePontos);
+			spanValue9.appendChild(txt9);
+			btnSuriname.appendChild(spanValue9);
+
+			var btnBolivia = document.createElement("BUTTON");
+			var bolivia = document.createTextNode("BOLIVIA");
+			btnBolivia.appendChild(bolivia);
+			btnBolivia.style.background = 'gray';
+			btnBolivia.style.color = 'white';
+			btnBolivia.style.height = '100px';
+			btnBolivia.style.width = '100px';
+			
+			btnBolivia.style.position = 'absolute';
+			btnBolivia.style.left = '500px';
+			btnBolivia.style.top = '250px';
+
+			divRow.appendChild(btnBolivia);
+
+			var spanValue10 = document.createElement('SPAN');
+			var boliviaPontos = paises[10].valor;
+			var txt10 = document.createTextNode(boliviaPontos);
+			spanValue10.appendChild(txt10);
+			btnBolivia.appendChild(spanValue10);
+
+
+			var btnGuiana = document.createElement("BUTTON");
+			var guiana = document.createTextNode("GUIANA");
+			btnGuiana.appendChild(guiana);
+			btnGuiana.style.background = 'gray';
+			btnGuiana.style.color = 'white';
+			btnGuiana.style.height = '100px';
+			btnGuiana.style.width = '80px';
+			btnGuiana.style.position = 'absolute';
+			btnGuiana.style.left = '870px';
+			btnGuiana.style.top = '30px';
+
+			divRow.appendChild(btnGuiana);
+
+			var spanValue11 = document.createElement('SPAN');
+			var guianaPontos = paises[11].valor;
+			var txt11 = document.createTextNode(guianaPontos);
+			spanValue11.appendChild(txt11);
+			btnGuiana.appendChild(spanValue11);
+
+						var btnGuianaFrancesa = document.createElement("BUTTON");
+			var guianaFrancesa = document.createTextNode("GUIANAF");
+			btnGuianaFrancesa.appendChild(guianaFrancesa);
+			btnGuianaFrancesa.style.background = 'gray';
+			btnGuianaFrancesa.style.color = 'white';
+			btnGuianaFrancesa.style.height = '40px';
+			btnGuianaFrancesa.style.width = '85px';
+			btnGuianaFrancesa.style.position = 'absolute';
+			btnGuianaFrancesa.style.left = '1070px';
+			btnGuianaFrancesa.style.top = '100px';
+
+
+
+			divRow.appendChild(btnGuianaFrancesa);
+
+			var spanValue12 = document.createElement('SPAN');
+			var guianaFrancesaPontos = paises[12].valor;
+			var txt12 = document.createTextNode(guianaFrancesaPontos);
+			spanValue12.appendChild(txt12);
+			btnGuianaFrancesa.appendChild(spanValue12);
+
+		}
+
+		function action(n) {
+			var divModal = document.createElement('div');
+			divModal.style.position = 'fixed';
+			divModal.style.background = 'rgb(0,25,0,0.4)';
+			divModal.style.width = '110%';
+			divModal.style.height = '100%';
+			document.body.appendChild(divModal);
+			var modalContent = document.createElement('div');
+			var textoModal = document.createTextNode('meu modal');
+			modalContent.appendChild(textoModal)
+			modalContent.style.background = '#a12';
+
+			modalContent.style.width = '50%';
+			modalContent.style.height = '50%';
+
+			divModal.appendChild(modalContent);
+			var xis = document.createElement('span');
+			var xixTxt = document.createTextNode('X');
+			xis.style.fontSize = '30px';
+			xis.style.cursor = 'pointer';
+
+			xis.appendChild(xixTxt);
+			modalContent.appendChild(xis);
+
+			xis.addEventListener('click',()=> {
+				divModal.style.display = 'none';
+			})
+		}
+
+		function check() {
+			for (var i = 0;i<4;i++) {
+			 	if (paises[i].jogador == true && paises[i].valor < 0) {
+			 		paises[i].jogador = false;
+			 		paises[i].valor = paises[i].valor * -1;
+			 		alert(paises[i].nome + ' passando pro lado do mal ')
+			 	} else if (paises[i].jogador == false && paises[i].valor < 0) {
+			 		paises[i].jogador = true;
+			 		paises[i].valor = paises[i].valor * -1;
+			 		alert(paises[i].nome + ' passando pro lado do bem ')
+			 	}
+			}
+			jogar(0);
+		}
+
+
+		// refazer logica OK!!!!!
+			
+	</script>
+</body>
+</html>
